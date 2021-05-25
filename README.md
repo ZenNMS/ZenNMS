@@ -13,7 +13,7 @@ Thank you for considering contributing to the ZenNMS! The contribution guide can
 
 ## Code of Conduct
 
-In order to ensure that the ZenNMS community is welcoming to all, please review and abide by the [Code of Conduct]().
+In order to ensure that the ZenNMS community is welcoming to all, please review and abide by the [Code of Conduct](.github/CODE_OF_CONDUCT.md).
 
 ## Security Vulnerabilities
 
