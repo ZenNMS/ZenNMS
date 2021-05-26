@@ -35,6 +35,11 @@ The ZenNMS project is created with:
 
 ## Features
 
+- Device management and monitoring
+- Network discovery
+- Rack Management
+- Site
+
 ## Screenshots
 
 ### Devices List
