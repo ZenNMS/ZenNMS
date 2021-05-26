@@ -7,9 +7,6 @@
     <img alt="License MIT" src="docs/img/license_mit.svg">
 </p>
 
-[![ZenNMS](https://img.shields.io/badge/ZenNMS-WIP-green.svg)](https://shields.io/)
-[![PHP^8](docs/img/php8.svg)](https://opensource.org/licenses/MIT)
-[![License: MIT](docs/img/license_mit.svg)](https://opensource.org/licenses/MIT)
 
 ## About ZenNMS
 
