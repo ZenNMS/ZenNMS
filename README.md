@@ -14,6 +14,7 @@
 - [Project Status](#project-status)
 - [Technologies](#technologies)
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [Security Vulnerabilities](#security-vulnerabilities)
@@ -48,7 +49,7 @@ The ZenNMS project is created with:
 
 <img alt="devices list screenshot" src="docs/img/sites_list.png" width="1500">
 
-# Rack Details
+### Rack Details
 
 <img alt="devices list screenshot" src="docs/img/rack_details.png" width="1500">
 
