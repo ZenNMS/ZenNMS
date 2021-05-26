@@ -1,5 +1,5 @@
 
-<p align="center" style="margin-bottom: 0;">
+<p align="center" style="margin-bottom: 0px !important;">
     <img alt="ZenNMS" src="docs/img/logo.png">
 </p>
 
