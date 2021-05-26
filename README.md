@@ -11,24 +11,28 @@
 
 ## Table of contents
 - [About ZenNMS](#about-zennms)
+- [Project Status](#project-status)
 - [Technologies](#technologies)
+- [Features](#features)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [Security Vulnerabilities](#security-vulnerabilities)
 - [License](#license)
-
+   
 ## About ZenNMS
-
-
-
+   
+## Project Status
+   
 ## Technologies
-
+   
 The ZenNMS project is created with:
 
 - PHP8
 - Laravel 8
 - Tailwindcss
 - eCharts
+
+## Features
 
 ## Contributing
 
