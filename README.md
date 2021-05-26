@@ -1,5 +1,5 @@
 
-<p align="center" style="margin-bottom: 0px !important;">
+<p align="center">
     <img alt="ZenNMS" src="docs/img/logo.png">
 </p>
 
@@ -12,7 +12,12 @@
 
 ## About ZenNMS
 
+## Technologies
 
+- PHP8
+- Laravel 8
+- Tailwindcss
+- eCharts
 
 ## Contributing
 
