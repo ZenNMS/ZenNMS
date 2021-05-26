@@ -1,5 +1,7 @@
 
-<p align="center"><img alt="ZenNMS" src="docs/img/logo.png"></p>
+<p align="center" style="margin-bottom: 0;">
+    <img alt="ZenNMS" src="docs/img/logo.png">
+</p>
 
 <p align="center">
     <img alt="Project Status" src="https://img.shields.io/badge/ZenNMS-WIP-green.svg">
