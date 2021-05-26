@@ -40,6 +40,18 @@ The ZenNMS project is created with:
 
 <img alt="devices list screenshot" src="docs/img/devices_list.png" width="1500">
 
+### Device Details
+
+<img alt="devices list screenshot" src="docs/img/device_details.png" width="1500">
+
+### Sites List
+
+<img alt="devices list screenshot" src="docs/img/sites_list.png" width="1500">
+
+# Rack Details
+
+<img alt="devices list screenshot" src="docs/img/rack_details.png" width="1500">
+
 ## Contributing
 
 Thank you for considering contributing to the ZenNMS! The contribution guide can be found in the [ZenNMS documentation](#).
