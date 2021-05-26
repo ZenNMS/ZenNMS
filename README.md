@@ -34,6 +34,12 @@ The ZenNMS project is created with:
 
 ## Features
 
+## Screenshots
+
+### Devices List
+
+<img alt="devices list screenshot" src="docs/img/devices_list.png" width="1500">
+
 ## Contributing
 
 Thank you for considering contributing to the ZenNMS! The contribution guide can be found in the [ZenNMS documentation](#).
