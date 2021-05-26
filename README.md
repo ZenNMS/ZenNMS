@@ -9,10 +9,20 @@
     <img alt="License MIT" src="docs/img/license_mit.svg">
 </p>
 
+- [About ZenNMS](#about-zennms)
+- [Technologies](#technologies)
+- [Contributing](#contributing)
+- [Code of Conduct](#code-of-conduct)
+- [Security Vulnerabilities](#security-vulnerabilities)
+- [License](#license)
 
 ## About ZenNMS
 
+
+
 ## Technologies
+
+The ZenNMS project is created with:
 
 - PHP8
 - Laravel 8
