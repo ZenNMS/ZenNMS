@@ -9,6 +9,7 @@
     <img alt="License MIT" src="docs/img/license_mit.svg">
 </p>
 
+## Table of contents
 - [About ZenNMS](#about-zennms)
 - [Technologies](#technologies)
 - [Contributing](#contributing)
