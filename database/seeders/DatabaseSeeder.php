@@ -13,17 +13,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $loadSampleData = $this->command->confirm('Load sample data?');
+
         $this->call([
-            PhysicalClassDefinitionsTableSeeder::class,
+            IanaInterfaceTypeDefinitionsSeeder::class,
+            IanaPhysicalClassDefinitionsSeeder::class,
+            IanaTunnelTypeDefinitionsSeeder::class,
+            InterfaceStatusesSeeder::class,
             PrivateEnterpriseNumbersSeeder::class,
-            GroupSeeder::class,
-            SiteSeeder::class,
             RackTypeSeeder::class,
-            RackSeeder::class,
-            TunnelTypeDefinitionsSeeder::class,
             UserSeeder::class,
-            // Insert some nodes
-            NodeSeeder::class,
         ]);
+
+        if ($loadSampleData) {
+            $this->call([
+                DeviceSeeder::class,
+                DeviceEntityPhysicalSeeder::class,
+                DeviceInterfacesSeeder::class,
+                DeviceResponseTimeSeeder::class,
+                DeviceSettingsSeeder::class,
+            ]);
+        }
     }
 }
