@@ -46,7 +46,13 @@ class DeviceInventoryController extends Controller
      */
     public function show(Device $device)
     {
-        return response()->json($device->inventory()->get());
+        //return response()->json($device->inventory()->get());
+        return view('zen.device.device-inventory', [
+            'device'         => $device,
+            'deviceEntities' => $device->inventory()->get(),
+            'interfaces_count' => $device->interfaces()->count(),
+            'inventory_count'  => $device->inventory()->count(),
+        ]);
     }
 
     /**
