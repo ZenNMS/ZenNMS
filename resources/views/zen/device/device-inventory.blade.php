@@ -2,7 +2,9 @@
 
 @section('page-header')
   <span class="font-semibold text-normal uppercase text-gray-700">
-    <a href="{{ route('device.show', $device->id) }}">{{ $device->displayname ?? $device->hostname }}</a>
+    <a href="{{ route('device.show', $device->id) }}">
+      {{ $device->displayname ?? $device->hostname }}
+    </a>
   </span>
   <span class="text-gray-300 px-2">
     <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="chevron-right" class="w-4 h-4 text-gray-400" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
