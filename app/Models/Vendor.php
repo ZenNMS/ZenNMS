@@ -26,4 +26,20 @@ class Vendor extends Model
      * @var string
      */
     protected $table = 'private_enterprise_numbers';
+
+    /**
+     * Returns the Enterprise Name attribute without the words between parentheses
+     *
+     * @param $value
+     *
+     * @return string
+     */
+    public function getEnterpriseNameAttribute($value)
+    {
+        if(str_contains($value, '(')) {
+            return trim(explode('(', $value)[0]);
+        }
+
+        return $value;
+    }
 }
