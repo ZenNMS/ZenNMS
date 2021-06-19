@@ -23,7 +23,7 @@
   <!-- Begin::Column-1 -->
   <div id="column-1">
     <x-ui.atoms.card class="px-2">
-      <table class="min-w-full divide-y divide-gray-200">
+      <table class="min-w-full divide-y divide-gray-200 mb-2">
         <thead class="bg-white">
           <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Entity</th>
           <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
@@ -39,64 +39,14 @@
         </thead>
         <tbody class="mt-4">
         @foreach($deviceEntities as $entity)
-          <tr class="p-2 hover:bg-gray-50 hover:rounded-sm border-b border-gray-100">
+          <tr class="p-2 hover:bg-gray-50 hover:rounded-sm {{ !$loop->last ? 'border-b border-gray-100' : '' }} ">
             <td class="px-4 py-4 whitespace-nowrap">
-              <div class="flex flex-row">
-                <div class="flex items-center rounded-m bg-gray-100 h-10 w-10 p-2">
-                  @switch($entity->class)
-                    @case(2)
-                      Unknown
-                      @break
-                    @case(3)
-                      <x-fontawesome.duotone.chassis class="h-6 w-6 text-gray-600" />
-                      @break
-                    @case(4)
-                      Backplane
-                      @break
-                    @case(5)
-                      <x-fontawesome.duotone.container class="h-6 w-6" />
-                      @break
-                    @case(6)
-                      <x-fontawesome.duotone.plug class="h-6 w-6 text-gray-600" />
-                      @break
-                    @case(7)
-                      <x-fontawesome.duotone.fan class="h-6 w-6" />
-                      @break
-                    @case(8)
-                      <x-fontawesome.duotone.sensor class="h-6 w-6" />
-                      @break
-                    @case(9)
-                      <x-fontawesome.duotone.memory class="h-6 w-6 text-gray-600" />
-                      @break
-                    @case(10)
-                      <x-fontawesome.duotone.ethernet class="h-6 w-6" />
-                      @break
-                    @case(11)
-                      <x-fontawesome.duotone.server class="h-6 w-6" />
-                      @break
-                    @case(12)
-                      <x-fontawesome.duotone.microchip class="h-6 w-6" />
-                      @break
-                    @case(13)
-                      <x-fontawesome.duotone.bolt class="h-6 w-6" />
-                      @break
-                    @case(14)
-                      <x-fontawesome.duotone.car-battery class="h-6 w-6" />
-                    @default
-{{--                      <x-fontawesome.duotone. class="h-6 w-6" />--}}
-                  @endswitch
-                </div>
-                <div class="flex flex-col -mt-1 px-4">
-                  <div class="text-normal">
-                    {{ $entity->name }}
-                  </div>
-                  <div class="text-gray-500 text-xs">
-                    @if($entity->serial_num)
-                    <span class="font-semibold text-gray-400">S/N</span>: {{ $entity->serial_num }}
-                    @endif
-                  </div>
-                </div>
-              </div>
+              <x-ui.molecules.entity-class
+                class-type="{{ $entity->class }}"
+                class-name="{{ $entity->class() }}"
+                name="{{ $entity->name }}"
+                serial-number="{{ $entity->serial_num }}">
+              </x-ui.molecules.entity-class>
             </td>
             <td class="px-4 py-4 whitespace-nowrap">{{ $entity->descr }}</td>
             <td class="px-4 py-4 whitespace-nowrap">{{ $entity->ent_physical_index }}</td>
@@ -109,9 +59,9 @@
             <td class="px-4 py-4 whitespace-nowrap">{{ $entity->model_name }}</td>
             <td class="px-4 py-4 whitespace-nowrap">
               @if($entity->is_fru === 1)
-                <span class="bg-green-100 text-green-600 rounded-full text-xs py-0.5 px-2">YES</span>
+                <x-ui.atoms.label type="success">YES</x-ui.atoms.label>
               @else
-                <span class="bg-red-100 text-red-600 rounded-full text-xs py-0.5 px-2">NO</span>
+                <x-ui.atoms.label type="default">NO</x-ui.atoms.label>
               @endif
             </td>
           </tr>
