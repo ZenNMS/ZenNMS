@@ -4,14 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Vendor extends Model
+class InterfaceStatus extends Model
 {
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'id',
+        'status',
+    ];
 
     /**
      * The attributes that aren't mass assignable.
@@ -25,5 +28,12 @@ class Vendor extends Model
      *
      * @var string
      */
-    protected $table = 'private_enterprise_numbers';
+    protected $table = 'interface_statuses';
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 }

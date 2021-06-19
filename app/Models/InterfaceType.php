@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Vendor extends Model
+class InterfaceType extends Model
 {
+    use HasFactory;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -25,5 +28,10 @@ class Vendor extends Model
      *
      * @var string
      */
-    protected $table = 'private_enterprise_numbers';
+    protected $table = 'interface_type_definitions';
+
+    public function interfaces()
+    {
+        return $this->hasMany(DeviceInterface::class, 'type_id', 'id');
+    }
 }
