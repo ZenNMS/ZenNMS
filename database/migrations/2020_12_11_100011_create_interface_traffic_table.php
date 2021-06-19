@@ -24,7 +24,7 @@ class CreateInterfaceTrafficTable extends Migration
 
             $table->foreign('interface_id')
                 ->references('id')
-                ->on('node_interfaces');
+                ->on('device_interfaces');
 
             $table->index(['timestamp', 'interface_id']);
         });

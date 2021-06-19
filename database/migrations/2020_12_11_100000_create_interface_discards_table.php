@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInterfaceErrorsTable extends Migration
+class CreateInterfaceDiscardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreateInterfaceErrorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('interface_errors', function (Blueprint $table) {
+        Schema::create('interface_discards', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('interface_id');
-            $table->unsignedBigInteger('in_errors');
-            $table->unsignedBigInteger('out_errors');
+            $table->unsignedBigInteger('in_discards');
+            $table->unsignedBigInteger('out_discards');
             $table->timestamp('created_at')
                 ->useCurrent();
 
             $table->foreign('interface_id')
                 ->references('id')
-                ->on('node_interfaces');
+                ->on('device_interfaces');
 
             $table->index(['interface_id', 'created_at']);
         });
@@ -36,6 +36,6 @@ class CreateInterfaceErrorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('interface_errors');
+        Schema::dropIfExists('interface_discards');
     }
 }
