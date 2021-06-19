@@ -17,7 +17,7 @@ class PrivateEnterpriseNumbersSeeder extends Seeder
         /**
          * Load Private Enterprise Numbers from file
          */
-        $privateEnterpriseNumbers = include database_path('/seeders_data/private_enterprise_numbers.php');
+        $privateEnterpriseNumbers = include database_path('/data/private_enterprise_numbers.php');
 
         $chunks = array_chunk($privateEnterpriseNumbers, 100, true);
 
