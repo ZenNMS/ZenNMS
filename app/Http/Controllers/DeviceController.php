@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Device;
 use Illuminate\Http\Request;
 
 class DeviceController extends Controller
@@ -13,7 +14,7 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        return view('pages.device.index');
+        return view('zen.device.index');
     }
 
     /**
@@ -40,12 +41,16 @@ class DeviceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Device $node
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Device $device)
     {
-        return view('pages.device.details');
+        return view('zen.device.show', [
+            'device' => $device,
+            'inventory_count' => $device->inventory()->count(),
+            'interfaces_count' => $device->interfaces()->count(),
+        ]);
     }
 
     /**
