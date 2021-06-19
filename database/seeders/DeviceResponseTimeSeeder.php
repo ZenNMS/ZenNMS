@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class NodeInterfacesSeeder extends Seeder
+class DeviceResponseTimeSeeder extends Seeder
 {
     /**
      * Run the database seeds.

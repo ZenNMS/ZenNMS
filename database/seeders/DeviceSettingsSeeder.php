@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class NodeSettingsSeeder extends Seeder
+class DeviceSettingsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,8 +14,8 @@ class NodeSettingsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('node_settings')->insert([
-            'node_id' => 1,
+        DB::table('device_settings')->insert([
+            'device_id' => 1,
             'icmp_count' => 5,
             'icmp_retries' => 3,
             'icmp_timeout' => 100,
