@@ -50,11 +50,11 @@ The ZenNMS project is created with:
 
 ### Device Entities
 
-<img alt="devices list screenshot" src="docs/img/device-entities.png" width="1500">
+<img alt="devices entities list screenshot" src="docs/img/device-entities.png" width="1500">
 
-### Sites List
+### Device Interfaces
 
-<img alt="devices list screenshot" src="docs/img/sites_list.png" width="1500">
+<img alt="device interface list screenshot" src="docs/img/device-interfaces.png" width="1500">
 
 ### Rack Details
 
