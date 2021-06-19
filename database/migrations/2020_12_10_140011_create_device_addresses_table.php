@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNodeAddressesTable extends Migration
+class CreateDeviceAddressesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateNodeAddressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('node_addresses', function (Blueprint $table) {
+        Schema::create('device_addresses', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('node_id');
+            $table->unsignedBigInteger('device_id');
             $table->string('country')->nullable();
             $table->string('region')->nullable();
             $table->string('city')->nullable();
@@ -26,9 +26,9 @@ class CreateNodeAddressesTable extends Migration
             $table->double('gps_latitude', 10,7)->nullable();
             $table->double('gps_longitude', 10, 7)->nullable();
 
-            $table->foreign('node_id')
+            $table->foreign('device_id')
                 ->references('id')
-                ->on('nodes');
+                ->on('devices');
 
             $table->timestamps();
         });
@@ -41,6 +41,6 @@ class CreateNodeAddressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('node_addresses');
+        Schema::dropIfExists('device_addresses');
     }
 }

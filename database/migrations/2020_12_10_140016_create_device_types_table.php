@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNodeTypesTable extends Migration
+class CreateDeviceTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateNodeTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('node_types', function (Blueprint $table) {
+        Schema::create('device_types', function (Blueprint $table) {
             $table->id();
             $table->string('type', 50);
             $table->string('icon', 50)->nullable();
@@ -29,6 +29,6 @@ class CreateNodeTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('node_types');
+        Schema::dropIfExists('device_types');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNodeSettingsTable extends Migration
+class CreateDeviceSettingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateNodeSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('node_settings', function (Blueprint $table) {
+        Schema::create('device_settings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('node_id');
+            $table->unsignedBigInteger('device_id');
             # Default Poller
             $table->unsignedTinyInteger('engine_id')->default(1);
             # ICMP Settings
@@ -46,9 +46,9 @@ class CreateNodeSettingsTable extends Migration
             $table->boolean('keep_trends_history')->default(false);
             $table->timestamps();
 
-            $table->foreign('node_id')
+            $table->foreign('device_id')
                 ->references('id')
-                ->on('nodes');
+                ->on('devices');
         });
     }
 
@@ -59,6 +59,6 @@ class CreateNodeSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('node_settings');
+        Schema::dropIfExists('device_settings');
     }
 }
