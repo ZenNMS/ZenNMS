@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Device;
+use App\Models\DeviceInterface;
 use Illuminate\Http\Request;
 
 class DeviceInterfaceController extends Controller
@@ -11,41 +13,30 @@ class DeviceInterfaceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Device $device)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('zen.device.device-interfaces', [
+            'device' => $device,
+            'interfaces_count' => $device->interfaces()->count(),
+            'inventory_count' => $device->inventory()->count(),
+            'interfaces' => $device->interfaces()->get(),
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param DeviceInterface $interface
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(DeviceInterface $interface)
     {
-        //
+        return view('zen.interface.show', [
+            'device' => $interface->device()
+                ->select(['id', 'hostname', 'display_name'])
+                ->first(),
+            'interface' => $interface,
+        ]);
     }
 
     /**
@@ -55,18 +46,6 @@ class DeviceInterfaceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
     {
         //
     }
