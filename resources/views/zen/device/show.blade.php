@@ -1,9 +1,17 @@
 @extends('zen.app')
 
 @section('page-header')
-  <span class="font-semibold text-2xl text-gray-700">Devices</span>
-  <span class="text-gray-300 px-4">|</span>
-  <span class="font-normal text-xl text-gray-400">Device details</span>
+  <span class="font-semibold text-bold uppercase text-gray-700">Devices</span>
+  <span class="text-gray-300 px-2">
+    <x-fontawesome.light.chevron-right class="w-4 h-4 text-gray-400" />
+  </span>
+  <span class="font-normal text-normal uppercase text-gray-700">
+    {{ $device->displayname ?? $device->hostname }}
+  </span>
+  <span class="text-gray-300 px-2">
+    <x-fontawesome.light.chevron-right class="w-4 h-4 text-gray-400" />
+  </span>
+  <span class="font-normal text-normal text-gray-400">Device details</span>
 @endsection
 
 @section('content')
@@ -17,13 +25,13 @@
               <section>
                 <div class="px-8 py-4 flex flex-col w-full">
                   <div class="flex">
-              <span class="w-20 mr-4">
-                <img
-                  alt="{{ $device->vendor->enterprise_name }} logo"
-                  src="{{ asset('img/vendors/96/'.$device->vendor_id.'.png') }}"
-                  height="64"
-                  width="64">
-              </span>
+                    <span class="w-20 mr-4">
+                      <img
+                        alt="{{ $device->vendor->enterprise_name }} logo"
+                        src="{{ asset('img/vendors/96/'.$device->vendor_id.'.png') }}"
+                        height="64"
+                        width="64">
+                    </span>
                     <span class="tracking-wider">
                 <h3 class="text-2xl mb-1">WTG-FWF51E-FW01</h3>
                 <div class="text-xl">
