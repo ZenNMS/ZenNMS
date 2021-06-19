@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Device;
 use Illuminate\Http\Request;
 
 class DeviceInventoryController extends Controller
@@ -43,9 +44,9 @@ class DeviceInventoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Device $device)
     {
-        //
+        return response()->json($device->inventory()->get());
     }
 
     /**
