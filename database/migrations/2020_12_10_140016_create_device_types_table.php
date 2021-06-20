@@ -18,7 +18,6 @@ class CreateDeviceTypesTable extends Migration
             $table->string('type', 50);
             $table->string('icon', 50)->nullable();
             $table->string('font_icon', 50)->nullable();
-            $table->timestamps();
         });
     }
 
