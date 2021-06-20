@@ -41,19 +41,19 @@
             <x-html.table-body-column>
               <x-ui.molecules.entity-class class-type="{{ $entity->class }}"
                                            class-name="{{ $entity->class() }}"
-                                           name="{{ $entity->name }}"
+                                           name="{{ $entity->name ?? $entity->model_name }}"
                                            serial-number="{{ $entity->serial_num }}">
               </x-ui.molecules.entity-class>
             </x-html.table-body-column>
-            <x-html.table-body-column>{{ $entity->descr }}</x-html.table-body-column>
-            <x-html.table-body-column>{{ $entity->ent_physical_index }}</x-html.table-body-column>
-            <x-html.table-body-column>{{ $entity->contained_in }}</x-html.table-body-column>
-            <x-html.table-body-column>{{ $entity->parent_rel_pos }}</x-html.table-body-column>
-            <x-html.table-body-column>{{ $entity->hardware_rev }}</x-html.table-body-column>
-            <x-html.table-body-column>{{ $entity->firmware_rev }}</x-html.table-body-column>
-            <x-html.table-body-column>{{ $entity->software_rev }}</x-html.table-body-column>
-            <x-html.table-body-column>{{ $entity->mfg_name }}</x-html.table-body-column>
-            <x-html.table-body-column>{{ $entity->model_name }}</x-html.table-body-column>
+            <x-html.table-body-column class="align-top">{{ $entity->descr }}</x-html.table-body-column>
+            <x-html.table-body-column class="align-top">{{ $entity->ent_physical_index }}</x-html.table-body-column>
+            <x-html.table-body-column class="align-top">{{ $entity->contained_in }}</x-html.table-body-column>
+            <x-html.table-body-column class="align-top">{{ $entity->parent_rel_pos }}</x-html.table-body-column>
+            <x-html.table-body-column class="align-top">{{ $entity->hardware_rev }}</x-html.table-body-column>
+            <x-html.table-body-column class="align-top">{{ $entity->firmware_rev }}</x-html.table-body-column>
+            <x-html.table-body-column class="align-top">{{ $entity->software_rev }}</x-html.table-body-column>
+            <x-html.table-body-column class="align-top">{{ $entity->mfg_name }}</x-html.table-body-column>
+            <x-html.table-body-column class="align-top">{{ $entity->model_name }}</x-html.table-body-column>
             <x-html.table-body-column>
               @if($entity->is_fru === 1)
                 <x-ui.atoms.label type="success">YES</x-ui.atoms.label>
@@ -64,6 +64,7 @@
           </tr>
         @endforeach
         </tbody>
+
       </table>
     </x-ui.atoms.card>
   </div>
