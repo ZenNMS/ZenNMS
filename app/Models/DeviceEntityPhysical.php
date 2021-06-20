@@ -34,6 +34,10 @@ class DeviceEntityPhysical extends Model
      */
     public function class()
     {
+        if ($this->class === null) {
+            return '';
+        }
+
         return match ($this->class) {
             1  => 'Other',
             2  => 'Unknown',
