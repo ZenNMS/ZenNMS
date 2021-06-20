@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDeviceNeighboursTable extends Migration
+class CreateDeviceLldpNeighboursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateDeviceNeighboursTable extends Migration
      */
     public function up()
     {
-        Schema::create('device_neighbours', function (Blueprint $table) {
+        Schema::create('device_lldp_neighbours', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('device_id');
-            $table->string('TimeMark');
+            $table->unsignedBigInteger('time_mark');
             $table->unsignedInteger('local_port_number');
             $table->unsignedInteger('index');
             $table->unsignedInteger('chassis_id_subtype');
@@ -27,6 +27,10 @@ class CreateDeviceNeighboursTable extends Migration
             $table->string('sys_name', 255);
             $table->string('sys_description', 255);
             $table->timestamps();
+            $table->foreign('device_id')
+                ->references('id')
+                ->on('devices')
+                ->cascadeOnDelete();
         });
     }
 
@@ -37,6 +41,6 @@ class CreateDeviceNeighboursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('device_neighbours');
+        Schema::dropIfExists('device_lldp_neighbours');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Device;
 use Illuminate\Http\Request;
 
 class DeviceNeighboursController extends Controller
@@ -11,9 +12,15 @@ class DeviceNeighboursController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Device $device)
     {
-        //
+        return view('zen.device.device-neighbours', [
+            'device' => $device,
+            'interfaces_count' => $device->interfaces()->count(),
+            'inventory_count' => $device->inventory()->count(),
+            'neighbours_count' => $device->neighbours()->count(),
+            'neighbours' => $device->neighbours()->paginate(12),
+        ]);
     }
 
     /**
