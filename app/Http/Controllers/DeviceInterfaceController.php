@@ -19,7 +19,8 @@ class DeviceInterfaceController extends Controller
             'device' => $device,
             'interfaces_count' => $device->interfaces()->count(),
             'inventory_count' => $device->inventory()->count(),
-            'interfaces' => $device->interfaces()->get(),
+            'neighbours_count' => $device->neighbours()->count(),
+            'interfaces' => $device->interfaces()->orderBy('index', 'asc')->paginate(12),
         ]);
     }
 

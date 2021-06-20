@@ -10,11 +10,13 @@ class DeviceController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function index()
     {
-        return view('zen.device.index');
+        return view('zen.device.index', [
+            'devices' => Device::with(['type'])->get()
+        ]);
     }
 
     /**
@@ -50,6 +52,7 @@ class DeviceController extends Controller
             'device' => $device,
             'inventory_count' => $device->inventory()->count(),
             'interfaces_count' => $device->interfaces()->count(),
+            'neighbours_count' => $device->neighbours()->count(),
         ]);
     }
 

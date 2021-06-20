@@ -10,11 +10,17 @@ class DeviceInventoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index(Device $device)
     {
-        //
+        return view('zen.device.device-inventory', [
+            'device'           => $device,
+            'deviceEntities'   => $device->inventory()->get(),
+            'interfaces_count' => $device->interfaces()->count(),
+            'inventory_count'  => $device->inventory()->count(),
+            'neighbours_count' => $device->neighbours()->count(),
+        ]);
     }
 
     /**
@@ -46,13 +52,7 @@ class DeviceInventoryController extends Controller
      */
     public function show(Device $device)
     {
-        //return response()->json($device->inventory()->get());
-        return view('zen.device.device-inventory', [
-            'device'         => $device,
-            'deviceEntities' => $device->inventory()->get(),
-            'interfaces_count' => $device->interfaces()->count(),
-            'inventory_count'  => $device->inventory()->count(),
-        ]);
+
     }
 
     /**
