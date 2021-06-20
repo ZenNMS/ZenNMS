@@ -60,7 +60,7 @@
                   </div>
                   <div class="flex flex-col">
                     <div class="text-gray-500">
-                      <a href="{{ route('interface.show', $interface->id) }}">
+                      <a class="font-semibold text-green-500" href="{{ route('interface.show', $interface->id) }}">
                         {{ $interface->name }}
                       </a>
                     </div>

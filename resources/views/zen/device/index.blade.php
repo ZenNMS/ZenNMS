@@ -66,8 +66,5 @@
     </x-ui.atoms.card>
   </div>
   <!-- End::Column-1 -->
-  <pre>
-    @json($devices, JSON_PRETTY_PRINT)
-  </pre>
 </div>
 @endsection
