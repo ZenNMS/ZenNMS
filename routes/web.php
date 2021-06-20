@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\DeviceInterfaceController;
 use App\Http\Controllers\DeviceInventoryController;
+use App\Http\Controllers\DeviceNeighboursController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RackController;
@@ -53,8 +54,11 @@ Route::prefix('nms')->group(function () {
     Route::get('device/{device}/interfaces', [DeviceInterfaceController::class, 'index'])
         ->name('device.interfaces');
 
-    Route::get('device/{device}/inventory', [DeviceInventoryController::class, 'show'])
+    Route::get('device/{device}/inventory', [DeviceInventoryController::class, 'index'])
         ->name('device.inventory');
+
+    Route::get('device/{device}/neighbours', [DeviceNeighboursController::class, 'index'])
+        ->name('device.neighbours');
 
     /**
      * Interface Routes
