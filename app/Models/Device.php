@@ -92,6 +92,26 @@ class Device extends Model
     }
 
     /**
+     * Get the neighbours of this device.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function neighbours()
+    {
+        return $this->hasMany(DeviceNeighbours::class);
+    }
+
+    /**
+     * Get the type of the device.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function type()
+    {
+        return $this->belongsTo(DeviceType::class, 'type_id');
+    }
+
+    /**
      * Get the vendor of this device.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
