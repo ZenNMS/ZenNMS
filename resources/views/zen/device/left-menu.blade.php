@@ -16,7 +16,7 @@
       <x-fontawesome.duotone.fingerprint class="group-hover:text-green-400 h-5 w-5 {{ $selected === strval($device->id) ? 'text-green-400' : '' }}" />
     </x-ui.organisms.aside-list-item>
 
-    @if($interfaces_count > 0)
+    @if($device->interfaces_count > 0)
     <x-ui.organisms.aside-list-item
       active="{{ $selected === 'interfaces' }}"
       href="{{ route('device.interfaces', $device->id) }}"
@@ -26,7 +26,7 @@
     </x-ui.organisms.aside-list-item>
     @endif
 
-    @if($inventory_count > 0)
+    @if($device->inventory_count > 0)
     <x-ui.organisms.aside-list-item
       active="{{ $selected === 'inventory' }}"
       href="{{ route('device.inventory', $device->id) }}"
@@ -70,12 +70,12 @@
 {{--      <x-fontawesome.duotone.split class="group-hover:text-green-400 h-5 w-5" />--}}
 {{--    </x-ui.organisms.aside-list-item>--}}
 
-    @if($neighbours_count > 0)
+    @if($device->neighbours_count > 0)
     <x-ui.organisms.aside-list-item
       active="{{ $selected === 'neighbours' }}"
       href="{{ route('device.neighbours', $device->id) }}"
       title="Neighbours">
-      <x-fontawesome.duotone.chart-network class="group-hover:text-green-400 h-5 w-5 {{ $selected === 'inventory' ? 'text-green-400' : '' }}" />
+      <x-fontawesome.duotone.chart-network class="group-hover:text-green-400 h-5 w-5 {{ $selected === 'neighbours' ? 'text-green-400' : '' }}" />
     </x-ui.organisms.aside-list-item>
     @endif
 

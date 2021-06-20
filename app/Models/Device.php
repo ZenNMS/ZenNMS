@@ -65,6 +65,17 @@ class Device extends Model
     protected $guarded = [];
 
     /**
+     * The relationship counts that should be eager loaded on every query.
+     *
+     * @var array
+     */
+    protected $withCount = [
+        'interfaces',
+        'inventory',
+        'neighbours',
+    ];
+
+    /**
      * The table associated with the model.
      *
      * @var string

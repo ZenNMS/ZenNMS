@@ -15,7 +15,9 @@ class DeviceController extends Controller
     public function index()
     {
         return view('zen.device.index', [
-            'devices' => Device::with(['type'])->get()
+            'devices' => Device::with(['type', 'vendor'])
+                ->orderBy('hostname')
+                ->paginate(12)
         ]);
     }
 
@@ -50,9 +52,6 @@ class DeviceController extends Controller
     {
         return view('zen.device.show', [
             'device' => $device,
-            'inventory_count' => $device->inventory()->count(),
-            'interfaces_count' => $device->interfaces()->count(),
-            'neighbours_count' => $device->neighbours()->count(),
         ]);
     }
 

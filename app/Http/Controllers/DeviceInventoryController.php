@@ -17,9 +17,6 @@ class DeviceInventoryController extends Controller
         return view('zen.device.device-inventory', [
             'device'           => $device,
             'deviceEntities'   => $device->inventory()->get(),
-            'interfaces_count' => $device->interfaces()->count(),
-            'inventory_count'  => $device->inventory()->count(),
-            'neighbours_count' => $device->neighbours()->count(),
         ]);
     }
 

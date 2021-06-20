@@ -17,10 +17,9 @@ class DeviceInterfaceController extends Controller
     {
         return view('zen.device.device-interfaces', [
             'device' => $device,
-            'interfaces_count' => $device->interfaces()->count(),
-            'inventory_count' => $device->inventory()->count(),
-            'neighbours_count' => $device->neighbours()->count(),
-            'interfaces' => $device->interfaces()->orderBy('index', 'asc')->paginate(12),
+            'interfaces' => $device->interfaces()
+                ->orderBy('index', 'asc')
+                ->paginate(12),
         ]);
     }
 

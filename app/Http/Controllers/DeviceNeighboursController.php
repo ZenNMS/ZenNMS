@@ -16,10 +16,9 @@ class DeviceNeighboursController extends Controller
     {
         return view('zen.device.device-neighbours', [
             'device' => $device,
-            'interfaces_count' => $device->interfaces()->count(),
-            'inventory_count' => $device->inventory()->count(),
-            'neighbours_count' => $device->neighbours()->count(),
-            'neighbours' => $device->neighbours()->paginate(12),
+            'neighbours' => $device->neighbours()
+                ->orderBy('sys_name', 'asc')
+                ->paginate(12),
         ]);
     }
 
