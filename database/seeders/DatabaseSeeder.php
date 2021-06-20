@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $loadSampleData = $this->command->confirm('Load sample data?');
 
         $this->call([
+            DeviceTypesSeeder::class,
             IanaInterfaceTypeDefinitionsSeeder::class,
             IanaPhysicalClassDefinitionsSeeder::class,
             IanaTunnelTypeDefinitionsSeeder::class,
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
                 DeviceSeeder::class,
                 DeviceEntityPhysicalSeeder::class,
                 DeviceInterfacesSeeder::class,
+                DeviceNeighboursSeeder::class,
                 DeviceResponseTimeSeeder::class,
                 DeviceSettingsSeeder::class,
             ]);
