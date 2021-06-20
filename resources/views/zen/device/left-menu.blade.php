@@ -66,24 +66,31 @@
 {{--    <x-ui.organisms.aside-list-item title="Temperature" href="#">--}}
 {{--      <x-fontawesome.duotone.temperature-three-quarters class="group-hover:text-green-400 h-5 w-5" />--}}
 {{--    </x-ui.organisms.aside-list-item>--}}
-    <x-ui.organisms.aside-list-item title="Routing" href="#">
-      <x-fontawesome.duotone.split class="group-hover:text-green-400 h-5 w-5" />
+{{--    <x-ui.organisms.aside-list-item title="Routing" href="#">--}}
+{{--      <x-fontawesome.duotone.split class="group-hover:text-green-400 h-5 w-5" />--}}
+{{--    </x-ui.organisms.aside-list-item>--}}
+
+    @if($neighbours_count > 0)
+    <x-ui.organisms.aside-list-item
+      active="{{ $selected === 'neighbours' }}"
+      href="{{ route('device.neighbours', $device->id) }}"
+      title="Neighbours">
+      <x-fontawesome.duotone.chart-network class="group-hover:text-green-400 h-5 w-5 {{ $selected === 'inventory' ? 'text-green-400' : '' }}" />
     </x-ui.organisms.aside-list-item>
-    <x-ui.organisms.aside-list-item title="Neighbours" href="#">
-      <x-fontawesome.duotone.chart-network class="group-hover:text-green-400 h-5 w-5" />
-    </x-ui.organisms.aside-list-item>
-    <x-ui.organisms.aside-list-item title="Vlans" href="#">
-      <x-fontawesome.duotone.layer-group class="group-hover:text-green-400 h-5 w-5" />
-    </x-ui.organisms.aside-list-item>
-    <x-ui.organisms.aside-list-item title="Alerts" href="#">
-      <x-fontawesome.duotone.triangle-exclamation class="group-hover:text-green-400 h-5 w-5" />
-    </x-ui.organisms.aside-list-item>
-    <x-ui.organisms.aside-list-item title="Events" href="#">
-      <x-fontawesome.duotone.calendar-exclamation class="group-hover:text-green-400 h-5 w-5" />
-    </x-ui.organisms.aside-list-item>
-    <x-ui.organisms.aside-list-item title="Notes" href="#">
-      <x-fontawesome.duotone.note class="group-hover:text-green-400 h-5 w-5" />
-    </x-ui.organisms.aside-list-item>
+    @endif
+
+{{--    <x-ui.organisms.aside-list-item title="Vlans" href="#">--}}
+{{--      <x-fontawesome.duotone.layer-group class="group-hover:text-green-400 h-5 w-5" />--}}
+{{--    </x-ui.organisms.aside-list-item>--}}
+{{--    <x-ui.organisms.aside-list-item title="Alerts" href="#">--}}
+{{--      <x-fontawesome.duotone.triangle-exclamation class="group-hover:text-green-400 h-5 w-5" />--}}
+{{--    </x-ui.organisms.aside-list-item>--}}
+{{--    <x-ui.organisms.aside-list-item title="Events" href="#">--}}
+{{--      <x-fontawesome.duotone.calendar-exclamation class="group-hover:text-green-400 h-5 w-5" />--}}
+{{--    </x-ui.organisms.aside-list-item>--}}
+{{--    <x-ui.organisms.aside-list-item title="Notes" href="#">--}}
+{{--      <x-fontawesome.duotone.note class="group-hover:text-green-400 h-5 w-5" />--}}
+{{--    </x-ui.organisms.aside-list-item>--}}
   </ul>
 </section>
 <section class="px-6">
