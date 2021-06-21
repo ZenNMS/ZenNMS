@@ -48,7 +48,7 @@ The ZenNMS project is created with:
 
 <img alt="devices list screenshot" src="docs/img/devices_list.png" width="1500">
 
-### Devicee Details
+### Device Details
 
 <img alt="devices list screenshot" src="docs/img/device_details.png" width="1500">
 
