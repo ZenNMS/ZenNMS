@@ -25,14 +25,11 @@
           <table class="w-full table-fixed divide-y divide-gray-200 text-gray-600">
             <thead class="">
               <tr>
-                <x-html.table-head-column class="">local port number</x-html.table-head-column>
-                <x-html.table-head-column class="">index</x-html.table-head-column>
-                <x-html.table-head-column class="">Chassis id subtype</x-html.table-head-column>
-                <x-html.table-head-column class="">Chassis id</x-html.table-head-column>
-                <x-html.table-head-column class="">Port id subtype</x-html.table-head-column>
-                <x-html.table-head-column class="">Port id</x-html.table-head-column>
-                <x-html.table-head-column class="">Port description</x-html.table-head-column>
-                <x-html.table-head-column class="">Sys. name</x-html.table-head-column>
+                <x-html.table-head-column>local port<br>number</x-html.table-head-column>
+                <x-html.table-head-column>Chassis id /<br>Subtype</x-html.table-head-column>
+                <x-html.table-head-column>Port id /<br>Subtype</x-html.table-head-column>
+                <x-html.table-head-column>Port description</x-html.table-head-column>
+                <x-html.table-head-column>Sys. name</x-html.table-head-column>
                 <x-html.table-head-column class="w-4/12">Sys. description</x-html.table-head-column>
               </tr>
             </thead>
@@ -40,14 +37,27 @@
               @foreach($neighbours as $neighbour)
               <tr class="hover:bg-gray-100">
                 <x-html.table-body-column class="whitespace-nowrap align-top">{{ $neighbour->local_port_number }}</x-html.table-body-column>
-                <x-html.table-body-column class="whitespace-nowrap align-top">{{ $neighbour->index }}</x-html.table-body-column>
-                <x-html.table-body-column class="whitespace-nowrap align-top">{{ $neighbour->chassis_id_subtype }}</x-html.table-body-column>
-                <x-html.table-body-column class="whitespace-nowrap align-top">{{ $neighbour->chassis_id }}</x-html.table-body-column>
-                <x-html.table-body-column class="whitespace-nowrap align-top">{{ $neighbour->port_id_subtype }}</x-html.table-body-column>
-                <x-html.table-body-column class="whitespace-nowrap align-top">{{ $neighbour->port_id }}</x-html.table-body-column>
-                <x-html.table-body-column class="whitespace-nowrap align-top">{{ $neighbour->port_description }}</x-html.table-body-column>
-                <x-html.table-body-column class="whitespace-nowrap align-top">{{ $neighbour->sys_name }}</x-html.table-body-column>
-                <x-html.table-body-column class="whitespace-normal break-words">{{ $neighbour->sys_description }}</x-html.table-body-column>
+                <x-html.table-body-column class="whitespace-nowrap align-top">
+                  <div>
+                    <div class="text-gray-700">{{ $neighbour->chassis_id }}</div>
+                    <div class="font-semibold tracking-wider text-sm text-gray-400">{{ $neighbour->chassis_id_subtype }}</div>
+                  </div>
+                </x-html.table-body-column>
+                <x-html.table-body-column class="whitespace-nowrap align-top">
+                  <div>
+                    <div class="text-gray-700">{{ $neighbour->port_id }}</div>
+                    <div class="font-semibold tracking-wider text-sm text-gray-400">{{ $neighbour->port_id_subtype }}</div>
+                  </div>
+                </x-html.table-body-column>
+                <x-html.table-body-column class="whitespace-nowrap align-top">
+                  {{ $neighbour->port_description }}
+                </x-html.table-body-column>
+                <x-html.table-body-column class="whitespace-nowrap align-top">
+                  {{ $neighbour->sys_name }}
+                </x-html.table-body-column>
+                <x-html.table-body-column class="whitespace-normal break-words">
+                  {{ $neighbour->sys_description }}
+                </x-html.table-body-column>
               </tr>
               @endforeach
             </tbody>
