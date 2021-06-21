@@ -1,7 +1,11 @@
 @extends('zen.app')
 
 @section('page-header')
-
+  <span class="font-normal text-normal text-gray-700">Devices</span>
+  <span class="text-gray-300 px-2">
+    <x-fontawesome.light.chevron-right class="w-4 h-4 text-gray-400" />
+  </span>
+  <span class="font-normal text-normal text-gray-400">Device list</span>
 @endsection
 
 @section('content')
@@ -40,23 +44,11 @@
             <x-html.table-body-column>{{ $device->vendor->enterprise_name }}</x-html.table-body-column>
             <x-html.table-body-column>{{ $device->ip_address }}</x-html.table-body-column>
             <x-html.table-body-column>
-              @switch($device->type_id)
-                @case(2)
-                  <i class="fal fa-shield-check fa-fw mr-2"></i>
-                  @break
-                @case('IP Camera')
-                  <i class="fal fa-cctv fa-fw mr-2"></i>
-                  @break
-                @case('Server')
-                  <i class="fal fa-server fa-fw mr-2"></i>
-                  @break
-                @case('Printer')
-                  <i class="fal fa-print fa-fw mr-2"></i>
-                  @break
-                @case(8)
-                  <i class="fal fa-wifi fa-fw mr-2"></i>
-                  @break
-              @endswitch
+              @if(!is_null($device->type_id))
+                @if($device->type->font_icon !== '')
+                  <i class="fal {{ $device->type->font_icon }} fa-fw mr-2"></i>
+                @endif
+              @endif
               {{ $device->type->type }}
             </x-html.table-body-column>
           </tr>
