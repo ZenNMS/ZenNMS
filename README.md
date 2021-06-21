@@ -24,7 +24,7 @@
    
 ## Project Status
 
-The project status is: Work In Progress.
+The project status is: **Work In Progress**.
    
 ## Technologies
    
