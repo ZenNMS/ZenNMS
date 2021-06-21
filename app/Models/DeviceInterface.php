@@ -4,6 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * DeviceInterface
+ *
+ * @property  int  $device_id
+ * @property  int  $index
+ * @property  string  $name
+ * @property  string  $alias
+ * @property  string  $description
+ * @property  int  $type_id
+ * @property  int  $speed
+ * @property  int  $mtu
+ * @property  string $physical_address
+ * @property  bool  $link_up_down_trap
+ * @property  int  $admin_status
+ * @property  int  $operational_status
+ * @property  int  $last_change
+ */
 class DeviceInterface extends Model
 {
     /**
@@ -52,6 +69,43 @@ class DeviceInterface extends Model
         'interfaceType',
     ];
 
+    /**
+     * Returns the name of the interface, based on preference.
+     * - First interface name.
+     * - Second interface description.
+     * - Last interface alias.
+     *
+     * @return mixed
+     */
+    public function displayName()
+    {
+        if (!is_null($this->name) && $this->name !== '') {
+            return $this->name;
+        }
+
+        if (!is_null($this->description) && $this->description !== '') {
+            return $this->description;
+        }
+
+        if (!is_null($this->alias) && $this->alias !== '') {
+            return $this->alias;
+        }
+
+        return 'Unnamed interface';
+    }
+
+    public function displayColor()
+    {
+        if ($this->admin_status === 1 && $this->operational_status === 1) {
+            return 'text-green-500';
+        }
+
+        if ($this->admin_status === 2 && $this->operational_status === 2) {
+            return 'text-red-500';
+        }
+
+        return 'text-gray-400';
+    }
 
     /**
      * RELATIONSHIPS

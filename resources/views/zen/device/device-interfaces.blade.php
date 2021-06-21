@@ -39,20 +39,17 @@
               <x-html.table-body-column>
                 <div class="flex space-x-3">
                   <div class="flex shrink-0 items-center h-10 w-10 px-2 bg-gray-100 rounded-sm static" title="{{ $interface->interfaceType->type }}">
-                    @php
-                      $isActive = $interface->admin_status === 1 && $interface->operational_status === 1;
-                    @endphp
                     @switch($interface->type_id)
                       @case(6)
-                        <x-fontawesome.duotone.ethernet class="shrink-0 h-6 w-6 {{ $isActive ? 'text-green-500' : 'text-gray-400' }}">
+                        <x-fontawesome.duotone.ethernet class="shrink-0 h-6 w-6 {{ $interface->displayColor() }}">
                         </x-fontawesome.duotone.ethernet>
                         @break
                       @case(135)
-                        <x-fontawesome.duotone.layer-2 class="shrink-0 h-6 w-6 {{ $isActive ? 'text-green-400' : 'text-gray-400' }}">
+                        <x-fontawesome.duotone.layer-2 class="shrink-0 h-6 w-6 {{ $interface->displayColor() }}">
                         </x-fontawesome.duotone.layer-2>
                         @break
                       @case(136)
-                        <x-fontawesome.duotone.layer-3 class="shrink-0 h-6 w-6 {{ $isActive ? 'text-green-400' : 'text-gray-400' }}">
+                        <x-fontawesome.duotone.layer-3 class="shrink-0 h-6 w-6 {{ $interface->displayColor() }}">
                         </x-fontawesome.duotone.layer-3>
                         @break
                       @default
@@ -61,7 +58,7 @@
                   <div class="flex flex-col">
                     <div class="text-gray-500">
                       <a class="font-semibold text-green-500" href="{{ route('interface.show', $interface->id) }}">
-                        {{ $interface->name }}
+                        {{ $interface->displayName() }}
                       </a>
                     </div>
                     <div class="text-sm text-gray-500">
