@@ -56,9 +56,9 @@ The ZenNMS project is created with:
 
 <img alt="device interface list screenshot" src="docs/img/device-interfaces.png" width="1500">
 
-### Rack Details
+### Device Neighbours
 
-<img alt="devices list screenshot" src="docs/img/rack_details.png" width="1500">
+<img alt="devices list screenshot" src="docs/img/device-neighbours.png" width="1500">
 
 ## Contributing
 
