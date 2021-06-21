@@ -48,6 +48,10 @@ The ZenNMS project is created with:
 
 <img alt="devices list screenshot" src="docs/img/devices_list.png" width="1500">
 
+### Devicee Details
+
+<img alt="devices list screenshot" src="docs/img/devices_details.png" width="1500">
+
 ### Device Entities
 
 <img alt="devices entities list screenshot" src="docs/img/device-entities.png" width="1500">
