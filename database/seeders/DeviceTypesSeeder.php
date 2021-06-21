@@ -23,7 +23,7 @@ class DeviceTypesSeeder extends Seeder
             [
                 'type'      => 'Firewall',
                 'icon'      => '',
-                'font_icon' => 'fa-shield',
+                'font_icon' => 'fa-shield-check',
             ],
             [
                 'type'      => 'Switch',
@@ -53,7 +53,7 @@ class DeviceTypesSeeder extends Seeder
             [
                 'type'      => 'Wireless Lan Controller',
                 'icon'      => '',
-                'font_icon' => '',
+                'font_icon' => 'fa-wifi',
             ],
             [
                 'type'      => 'Wireless Access Point',
@@ -84,6 +84,11 @@ class DeviceTypesSeeder extends Seeder
                 'type'      => 'Load Balancer',
                 'icon'      => '',
                 'font_icon' => '',
+            ],
+            [
+                'type'      => 'IP Camera',
+                'icon'      => '',
+                'font_icon' => 'fa-cctv',
             ],
         ];
 
