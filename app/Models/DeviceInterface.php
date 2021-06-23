@@ -7,19 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * DeviceInterface
  *
- * @property  int  $device_id
- * @property  int  $index
+ * @property  int     $device_id
+ * @property  int     $index
  * @property  string  $name
  * @property  string  $alias
  * @property  string  $description
- * @property  int  $type_id
- * @property  int  $speed
- * @property  int  $mtu
- * @property  string $physical_address
- * @property  bool  $link_up_down_trap
- * @property  int  $admin_status
- * @property  int  $operational_status
- * @property  int  $last_change
+ * @property  int     $type_id
+ * @property  int     $speed
+ * @property  int     $mtu
+ * @property  string  $physical_address
+ * @property  bool    $link_up_down_trap
+ * @property  int     $admin_status
+ * @property  int     $operational_status
+ * @property  int     $last_change
  */
 class DeviceInterface extends Model
 {
@@ -105,6 +105,57 @@ class DeviceInterface extends Model
         }
 
         return 'text-gray-400';
+    }
+
+    /**
+     * Returns only Interfaces (type_id = 6)
+     *
+     * @param $query
+     *
+     * @return mixed
+     */
+    public function scopeIsInterface($query)
+    {
+        return $query->where('type_id', '=', 6);
+    }
+
+    /**
+     * Returns Interfaces with admin_status UP.
+     *
+     * @param $query
+     *
+     * @return mixed
+     */
+    public function scopeInterfaceStatusUp($query)
+    {
+        return $query->isInterface()
+            ->where('admin_status', '=', 1);
+    }
+
+    /**
+     * Returns Interfaces with admin_status DOWN.
+     *
+     * @param $query
+     *
+     * @return mixed
+     */
+    public function scopeInterfaceStatusDown($query)
+    {
+        return $query->isInterface()
+            ->where('admin_status', '=', 2);
+    }
+
+    /**
+     * Returns Interfaces with admin_status TESTING.
+     *
+     * @param $query
+     *
+     * @return mixed
+     */
+    public function scopeInterfaceStatusUnknown($query)
+    {
+        return $query->isInterface()
+            ->whereNotIn('admin_status', [1, 2]);
     }
 
     /**
