@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 
@@ -89,6 +90,41 @@ class Device extends Model
     }
 
     /**
+     * ------------------------------------------------------------------------
+     * ACCESSORS
+     * ------------------------------------------------------------------------
+     */
+
+    /**
+     * Returns device uptime in human readable format.
+     *
+     * @param $value
+     *
+     * @return string
+     */
+    public function getSysUptimeAttribute($value)
+    {
+        if ($value > 0) {
+            return Carbon::now()
+                ->subSeconds($value / 100)
+                ->diffForHumans([
+                    'parts'  => 4,
+                    'join'   => true
+                ]);
+        }
+
+        return $value;
+    }
+
+    /**
+     * ------------------------------------------------------------------------
+     * RELATIONSHIPS
+     * ------------------------------------------------------------------------
+     *
+     * Device relationships with other models.
+     */
+
+    /**
      * Get the Interfaces of this node.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -135,6 +171,163 @@ class Device extends Model
      */
     public function vendor()
     {
-       return $this->belongsTo(Vendor::class, 'vendor_id', 'id');
+        return $this->belongsTo(Vendor::class, 'vendor_id', 'id');
     }
+
+    /**
+     * ------------------------------------------------------------------------
+     * SCOPES
+     * ------------------------------------------------------------------------
+     *
+     * Local scopes for easy filtering devices.
+     */
+
+    /**
+     * Scope a query to only include disabled devices.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeDisabled($query)
+    {
+        return $query->where('is_disabled', true);
+    }
+
+    /**
+     * Scope a query to only include enabled devices.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeEnabled($query)
+    {
+        return $query->where('is_disabled', false);
+    }
+
+    /**
+     * Scope a query to only include ICMP devices.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeIcmpDevices($query)
+    {
+        return $query->where('polling_method', '=', 'ICMP');
+    }
+
+    /**
+     * Scope a query to only include ignored devices.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeIgnored($query)
+    {
+        return $query->where('is_ignored', true);
+    }
+
+    /**
+     * Scope a query to only include managed devices.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeManaged($query)
+    {
+        return $query->where('is_unmanaged', false);
+    }
+
+    /**
+     * Scope a query to only include never checked devices.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNeverChecked($query)
+    {
+        return $query->whereNull('last_check');
+    }
+
+    /**
+     * Scope a query to only include never polled devices.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNeverPolled($query)
+    {
+        return $query->whereNull('last_poll');
+    }
+
+    /**
+     * Scope a query to only include new devices.
+     *
+     * @param   \Illuminate\Database\Eloquent\Builder  $query
+     *
+     * @return  \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNewdevices($query)
+    {
+        return $query
+            ->enabled()
+            ->managed()
+            ->neverChecked()
+            ->neverPolled();
+    }
+
+    /**
+     * Scope a query to only include new ICMP devices.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNewIcmpDevices($query)
+    {
+        return $query->newDevices()->icmpDevices();
+    }
+
+    /**
+     * Scope a query to only include new SNMP devices.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNewSnmpDevices($query)
+    {
+        return $query->newDevices()->snmpDevices();
+    }
+
+    /**
+     * Scope a query to only include SNMP devices.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeSnmpDevices($query)
+    {
+        return $query->where('polling_method', '=', 'SNMP');
+    }
+
+    /**
+     * Scope a query to only include unmanaged devices.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeUnmanaged($query)
+    {
+        return $query->where('is_unmanaged', true);
+    }
+
 }
