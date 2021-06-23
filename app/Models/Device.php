@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 /**
  * Class Device
@@ -13,6 +14,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Device extends Model
 {
+    use Searchable;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -58,13 +61,6 @@ class Device extends Model
     ];
 
     /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [];
-
-    /**
      * The relationship counts that should be eager loaded on every query.
      *
      * @var array
@@ -81,6 +77,16 @@ class Device extends Model
      * @var string
      */
     protected $table = 'devices';
+
+    /**
+     * Get the name of the index associated with the model.
+     *
+     * @return string
+     */
+    public function searchableAs()
+    {
+        return 'devices_index';
+    }
 
     /**
      * Get the Interfaces of this node.
