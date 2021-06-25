@@ -3,6 +3,7 @@
   'orderBy' => 'asc',
   'units' => 24,
 ])
+
 <div class="w-80">
   <h3 class="mb-3 pl-8 text-center text-xl font-semibold text-gray-600 tracking-wider">{{ $side }}</h3>
   <div class="flex space-x-2">
