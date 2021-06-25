@@ -12,6 +12,7 @@ use Laravel\Scout\Searchable;
  * @property DeviceInterface $interfaces
  * @property DeviceEntityPhysical $inventory
  * @property Vendor $vendor
+ * @property WirelessAccessPoint $wirelessAccessPoint
  */
 class Device extends Model
 {
@@ -70,6 +71,7 @@ class Device extends Model
         'interfaces',
         'inventory',
         'neighbours',
+        'wirelessAccessPoints',
     ];
 
     /**
@@ -86,7 +88,55 @@ class Device extends Model
      */
     public function searchableAs()
     {
-        return 'devices_index';
+        return 'devices';
+    }
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $device = $this->only([
+            'id',
+            'hostname',
+            'display_name',
+            'ip_address',
+            'ipv6_address',
+            'dns',
+            'sysDescr'
+        ]);
+
+        $device['interfaces'] = $this->interfaces()
+            ->select([
+                'physical_address',
+            ])
+            ->where('physical_address', '!=', '')
+            ->get()
+            ->pluck('physical_address')
+            ->toArray();
+
+        $device['inventory'] = $this->inventory()
+            ->select([
+                'serial_num',
+                'model_name',
+            ])
+            ->whereNotNull('serial_num')
+            ->get()
+            ->toArray();
+
+        $device['vendor'] = $this->vendor()
+            ->select('enterprise_name')
+            ->get()
+            ->toArray();
+
+        $device['wap'] = $this->wirelessAccessPoints()
+            ->select('name', 'physical_address', 'ip_address')
+            ->get()
+            ->toArray();
+
+        return $device;
     }
 
     /**
@@ -172,6 +222,16 @@ class Device extends Model
     public function vendor()
     {
         return $this->belongsTo(Vendor::class, 'vendor_id', 'id');
+    }
+
+    /**
+     * Get all Wireless Access Points controlled by this WLC.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function wirelessAccessPoints()
+    {
+        return $this->hasMany(WirelessAccessPoint::class);
     }
 
     /**
