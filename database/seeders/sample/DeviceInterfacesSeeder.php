@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\sample;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -794,6 +794,36 @@ class DeviceInterfacesSeeder extends Seeder
                 "admin_status" => 1,
                 "operational_status" => 1,
                 "last_change" => 221,
+            ],
+            [
+                "device_id" => 3,
+                "index" => 1,
+                "name" => "",
+                "alias" => "",
+                "description" => 'Unit: 0 Slot: 0 Port: 1 Gigabit - Level 0x8010001',
+                "type_id" => 6,
+                "speed" => 1000000000,
+                "mtu" => 1500,
+                "physical_address" => 'A4:88:73:3C:01:C0',
+                "link_up_down_trap" => false,
+                "admin_status" => 1,
+                "operational_status" => 1,
+                "last_change" => 0,
+            ],
+            [
+                "device_id" => 3,
+                "index" => 2,
+                "name" => "",
+                "alias" => "",
+                "description" => "Virtual Interface",
+                "type_id" => 6,
+                "speed" => 1000000000,
+                "mtu" => 1500,
+                "physical_address" => "A4:88:73:3C:01:C0",
+                "link_up_down_trap" => false,
+                "admin_status" => 1,
+                "operational_status" => 1,
+                "last_change" => 0,
             ],
             [
                 "device_id" => 4,
