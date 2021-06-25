@@ -33,36 +33,24 @@
             </h3>
           </div>
           <dl class="w-full">
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="Vendor">
-                {{ $device->vendor->enterprise_name }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="Model">
-                Alcatel-Lucent OS6450-P24
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="Hostname">
-                {{ $device->hostname }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="IP Address">
-                {{ $device->ip_address }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="DHCP">
-                {{ $device->is_dynamic_ip }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="DNS">
-                {{ $device->dns }}
-              </x-ui.molecules.description-list-item>
-            </div>
+            <x-ui.molecules.description-list-item term="Vendor">
+              {{ $device->vendor->enterprise_name }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="Model">
+              Alcatel-Lucent OS6450-P24
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="Hostname">
+              {{ $device->hostname }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="IP Address">
+              {{ $device->ip_address }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="DHCP">
+              {{ $device->is_dynamic_ip }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="DNS">
+              {{ $device->dns }}
+            </x-ui.molecules.description-list-item>
           </dl>
         </section>
       </div>
@@ -74,36 +62,24 @@
             </h3>
           </div>
           <dl class="w-full">
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="sysName">
-                {{ $device->sysName }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="sysDescription">
-                {{ $device->sysDescr }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="sysContact">
-                {{ $device->sysContact }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="sysLocation">
-                {{ $device->sysLocation }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="sysUptime">
-                {{ $device->sysUpTime }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="sysServices">
-                <x-ui.molecules.device-services services="{{ $device->sysServices }}" />
-              </x-ui.molecules.description-list-item>
-            </div>
+            <x-ui.molecules.description-list-item term="sysName">
+              {{ $device->sysName }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="sysDescription">
+              {{ $device->sysDescr }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="sysContact">
+              {{ $device->sysContact }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="sysLocation">
+              {{ $device->sysLocation }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="sysUptime">
+              {{ $device->sysUpTime }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="sysServices">
+              <x-ui.molecules.device-services services="{{ $device->sysServices }}" />
+            </x-ui.molecules.description-list-item>
           </dl>
         </section>
       </div>
@@ -115,46 +91,30 @@
             </h3>
           </div>
           <dl class="w-full">
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="Last status check">
-                {{ $device->last_check }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="Last check duration">
-                {{ $device->check_duration }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="Next status check">
-                {{ $device->next_check }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="Last discovery">
-                {{ $device->last_discovery }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="Next discovery">
-                {{ $device->next_discovery }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="Last poll">
-                {{ $device->last_poll }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="Last poll duration">
-                {{ $device->poll_duration }}
-              </x-ui.molecules.description-list-item>
-            </div>
-            <div class="bg-white px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <x-ui.molecules.description-list-item term="Next poll">
-                {{ $device->next_poll }}
-              </x-ui.molecules.description-list-item>
-            </div>
+            <x-ui.molecules.description-list-item term="Last status check">
+              {{ $device->last_check }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="Last check duration">
+              {{ $device->check_duration }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="Next status check">
+              {{ $device->next_check }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="Last discovery">
+              {{ $device->last_discovery }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="Next discovery">
+              {{ $device->next_discovery }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="Last poll">
+              {{ $device->last_poll }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="Last poll duration">
+              {{ $device->poll_duration }}
+            </x-ui.molecules.description-list-item>
+            <x-ui.molecules.description-list-item term="Next poll">
+              {{ $device->next_poll }}
+            </x-ui.molecules.description-list-item>
           </dl>
         </section>
       </div>
