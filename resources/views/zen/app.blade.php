@@ -11,16 +11,18 @@
 
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-    <link rel="stylesheet" href="{{ asset('vendors/fontawesome-pro-6/css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome-pro-6/css/all.css') }}">
     <!--end::Fonts-->
 
     <!--begin::Page Vendors Styles(used by this page)-->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.2/echarts.min.js"
+            integrity="sha512-ppWbHq6q2f7HAwS481w6qikuC0XEeBnmkRg6KWnWg3zSIbJwWWBgsCDMAxzSB7SVqXzWwSYQ2s8TSJKjnaikMg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
     <!--end::Page Vendors Styles-->
 
     <!--begin::Global Theme Styles(used by all pages)-->
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{{ asset('tailwindcss-components.css') }}">
     <style>.fa-secondary{opacity:.3}</style>
     <!--end::Global Theme Styles-->
 
