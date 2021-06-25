@@ -8,16 +8,17 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^8.0",
         "ext-json": "*",
         "ext-snmp": "*",
+        "acamposm/ping": "^2.1",
+        "acamposm/snmp-poller": "^1.1",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "http-interop/http-factory-guzzle": "^1.0",
         "laravel/framework": "^8.40",
         "laravel/scout": "^9.1",
-        "laravel/telescope": "^4.5",
         "laravel/tinker": "^2.5",
         "meilisearch/meilisearch-php": "^0.18.2"
     },
@@ -25,6 +26,7 @@
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
+        "laravel/telescope": "^4.5",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3"

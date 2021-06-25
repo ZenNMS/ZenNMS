@@ -4,8 +4,146 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b97a6bf3ffc53f9fec3570a981c92833",
+    "content-hash": "8cb5abb5f81b7bbf41f7ef3c701b49c7",
     "packages": [
+        {
+            "name": "acamposm/ping",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/angelcamposm/ping.git",
+                "reference": "3651fb234bc204735d421e3a6c291b19dc4afd37"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/angelcamposm/ping/zipball/3651fb234bc204735d421e3a6c291b19dc4afd37",
+                "reference": "3651fb234bc204735d421e3a6c291b19dc4afd37",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^5.3",
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Acamposm\\Ping\\PingServiceProvider"
+                    ],
+                    "aliases": {
+                        "Ping": "Acamposm\\Ping\\PingFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Acamposm\\Ping\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Angel Campos",
+                    "email": "angel.campos.m@outlook.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Ping uses the ICMP protocol's mandatory ECHO_REQUEST datagram to elicit an ICMP ECHO_RESPONSE from a host or gateway.",
+            "homepage": "https://github.com/angelcamposm/ping",
+            "keywords": [
+                "icmp",
+                "laravel",
+                "php",
+                "ping"
+            ],
+            "support": {
+                "issues": "https://github.com/angelcamposm/ping/issues",
+                "source": "https://github.com/angelcamposm/ping/tree/2.1.1"
+            },
+            "funding": [
+                {
+                    "url": "https://www.patreon.com/acamposm",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2021-02-07T17:03:02+00:00"
+        },
+        {
+            "name": "acamposm/snmp-poller",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/angelcamposm/snmp-poller.git",
+                "reference": "f3d0849c483d6a72824ac2621d4e1642edb265bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/angelcamposm/snmp-poller/zipball/f3d0849c483d6a72824ac2621d4e1642edb265bc",
+                "reference": "f3d0849c483d6a72824ac2621d4e1642edb265bc",
+                "shasum": ""
+            },
+            "require": {
+                "ext-snmp": "*",
+                "illuminate/console": "^8.41",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Acamposm\\SnmpPoller\\Providers\\SnmpPollerServiceProvider"
+                    ],
+                    "aliases": {
+                        "SnmpPoller": "Acamposm\\SnmpPoller\\Facades\\SnmpPollerFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Acamposm\\SnmpPoller\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Angel Campos",
+                    "email": "angel.campos.m@outlook.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "SNMP poller class",
+            "homepage": "https://github.com/acamposm/snmp-poller",
+            "keywords": [
+                "acamposm",
+                "poller",
+                "snmp",
+                "snmp-poller"
+            ],
+            "support": {
+                "issues": "https://github.com/angelcamposm/snmp-poller/issues",
+                "source": "https://github.com/angelcamposm/snmp-poller/tree/1.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.patreon.com/acamposm",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2021-05-18T09:38:04+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.0.3",
@@ -1215,70 +1353,6 @@
                 "source": "https://github.com/laravel/scout"
             },
             "time": "2021-06-15T16:00:14+00:00"
-        },
-        {
-            "name": "laravel/telescope",
-            "version": "v4.5.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/telescope.git",
-                "reference": "77373b6dccfc0c4372f1a09c9064cbe7b6d1bf76"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/77373b6dccfc0c4372f1a09c9064cbe7b6d1bf76",
-                "reference": "77373b6dccfc0c4372f1a09c9064cbe7b6d1bf76",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "laravel/framework": "^8.29",
-                "php": "^7.3|^8.0",
-                "symfony/var-dumper": "^5.0"
-            },
-            "require-dev": {
-                "ext-gd": "*",
-                "orchestra/testbench": "^6.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Laravel\\Telescope\\TelescopeServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\Telescope\\": "src/",
-                    "Laravel\\Telescope\\Database\\Factories\\": "database/factories/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                },
-                {
-                    "name": "Mohamed Said",
-                    "email": "mohamed@laravel.com"
-                }
-            ],
-            "description": "An elegant debug assistant for the Laravel framework.",
-            "keywords": [
-                "debugging",
-                "laravel",
-                "monitoring"
-            ],
-            "support": {
-                "issues": "https://github.com/laravel/telescope/issues",
-                "source": "https://github.com/laravel/telescope/tree/v4.5.1"
-            },
-            "time": "2021-06-22T15:36:07+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -6176,6 +6250,70 @@
             "time": "2021-05-25T16:41:13+00:00"
         },
         {
+            "name": "laravel/telescope",
+            "version": "v4.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/telescope.git",
+                "reference": "77373b6dccfc0c4372f1a09c9064cbe7b6d1bf76"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/77373b6dccfc0c4372f1a09c9064cbe7b6d1bf76",
+                "reference": "77373b6dccfc0c4372f1a09c9064cbe7b6d1bf76",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "laravel/framework": "^8.29",
+                "php": "^7.3|^8.0",
+                "symfony/var-dumper": "^5.0"
+            },
+            "require-dev": {
+                "ext-gd": "*",
+                "orchestra/testbench": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Telescope\\TelescopeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Telescope\\": "src/",
+                    "Laravel\\Telescope\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Mohamed Said",
+                    "email": "mohamed@laravel.com"
+                }
+            ],
+            "description": "An elegant debug assistant for the Laravel framework.",
+            "keywords": [
+                "debugging",
+                "laravel",
+                "monitoring"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/telescope/issues",
+                "source": "https://github.com/laravel/telescope/tree/v4.5.1"
+            },
+            "time": "2021-06-22T15:36:07+00:00"
+        },
+        {
             "name": "mockery/mockery",
             "version": "1.4.3",
             "source": {
@@ -8171,7 +8309,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0",
+        "php": "^8.0",
         "ext-json": "*",
         "ext-snmp": "*"
     },
