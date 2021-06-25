@@ -45,14 +45,30 @@ class DeviceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Device $node
-     * @return \Illuminate\Http\Response
+     * @param \App\Models\Device $device
+     *
+     * @return \Illuminate\Contracts\View\View
      */
     public function show(Device $device)
     {
-        return view('zen.device.show', [
-            'device' => $device,
-        ]);
+        $data = [
+            'device'     => $device,
+            'interfaces' => (object) [
+                'up'      => 0,
+                'down'    => 0,
+                'unknown' => 0,
+            ],
+        ];
+
+        if ($device->interfaces_count > 0) {
+            $data['interfaces'] = (object) [
+                'up'      => $device->interfaces()->interfaceStatusUp()->count(),
+                'down'    => $device->interfaces()->interfaceStatusDown()->count(),
+                'unknown' => $device->interfaces()->interfaceStatusUnknown()->count(),
+            ];
+        }
+
+        return view('zen.device.show', $data);
     }
 
     /**
