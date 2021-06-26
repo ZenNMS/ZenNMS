@@ -30,10 +30,10 @@ The project status is: **Work In Progress**.
    
 The ZenNMS project is created with:
 
-- PHP8
-- Laravel 8
-- Tailwindcss
-- eCharts
+- [PHP8](https://www.php.net/)
+- [Laravel 8](https://laravel.com/)
+- [Tailwindcss](https://tailwindcss.com/)
+- [Apache ECharts 5](https://echarts.apache.org/en/index.html)
 
 ## Features
 
