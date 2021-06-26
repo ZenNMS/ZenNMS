@@ -17,6 +17,7 @@ class CreateWirelessAccessPointsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('device_id');
             $table->string('index', 32);
+            $table->unsignedSmallInteger('entity_index');
             $table->uuid('wap_uuid')->unique();
             $table->string('name', 32);
             $table->string('physical_address', 17);
@@ -29,6 +30,7 @@ class CreateWirelessAccessPointsTable extends Migration
             $table->ipAddress('ip_address')->nullable();
             $table->ipAddress('netmask')->nullable();
             $table->ipAddress('gateway')->nullable();
+            $table->string('network_spectrum_interface', 32)->nullable();
             $table->string('boot_version')->nullable();
             $table->string('ios_version')->nullable();
             $table->string('software_version')->nullable();
