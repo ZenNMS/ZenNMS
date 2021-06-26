@@ -11,7 +11,7 @@ class DeviceWirelessAccessPointsController extends Controller
      * Handle the incoming request.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Http\Controllers\Device $device
+     * @param \App\Models\Device $device
      *
      * @return \Illuminate\Http\Response
      */
