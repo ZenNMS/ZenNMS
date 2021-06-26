@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DeviceEntityPhysical;
 use App\Models\WirelessAccessPoint;
 use Illuminate\Http\Request;
 
@@ -47,8 +48,9 @@ class WirelessAccessPointController extends Controller
     public function show(WirelessAccessPoint $wap)
     {
         return view('zen.wap.show', [
-            'device' => $wap->device()->first(),
-            'wap'    => $wap,
+            'device'     => $wap->device()->first(),
+            'wap'        => $wap,
+            'wap_entity' => $wap->entity()->first(),
         ]);
     }
 
