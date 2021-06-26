@@ -169,7 +169,7 @@ class DeviceEntityPhysicalSeeder extends Seeder
             ],
             [
                 "device_id" => 3,
-                "ent_physical_index" => null,
+                "ent_physical_index" => 1,
                 "descr" => "Cisco Business Wireless 140AC Access Point",
                 "vendor_type" => "",
                 "contained_in" => 0,
@@ -188,7 +188,7 @@ class DeviceEntityPhysicalSeeder extends Seeder
             ],
             [
                 "device_id" => 3,
-                "ent_physical_index" => null,
+                "ent_physical_index" => 8,
                 "descr" => "Cisco Business 100AC Series (IEEE 802.11ac) Access Point",
                 "vendor_type" => "",
                 "contained_in" => 0,
@@ -207,7 +207,7 @@ class DeviceEntityPhysicalSeeder extends Seeder
             ],
             [
                 "device_id" => 3,
-                "ent_physical_index" => null,
+                "ent_physical_index" => 16,
                 "descr" => "Cisco Business 100AC Series (IEEE 802.11ac) Access Point",
                 "vendor_type" => "",
                 "contained_in" => 0,
