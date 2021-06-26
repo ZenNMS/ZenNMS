@@ -68,6 +68,10 @@ The ZenNMS project is created with:
 
 <img alt="devices list screenshot" src="docs/img/device-wireless-access-points.png" width="1500">
 
+### Wireless Access Points Details
+
+<img alt="devices list screenshot" src="docs/img/wireless-access-point-details.png" width="1500">
+
 ## Contributing
 
 Thank you for considering contributing to the ZenNMS! The contribution guide can be found in the [ZenNMS documentation](#).
