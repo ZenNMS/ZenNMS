@@ -9,6 +9,42 @@ use Laravel\Scout\Searchable;
 /**
  * Class Device
  *
+ * @property string $hostname
+ * @property string $display_name
+ * @property string $ip_address
+ * @property string $ipv6_address
+ * @property bool $is_dynamic_ip
+ * @property string $dns
+ * @property string $group
+ * @property int $type_id
+ * @property int $vendor_id
+ * @property string $asset_tag
+ * @property int $is_rackable
+ * @property string $polling_method
+ * @property string $sysDescr
+ * @property string $sysObjectID
+ * @property int $sysUpTime
+ * @property string $sysContact
+ * @property string $sysName
+ * @property string $sysLocation
+ * @property int $sysServices
+ * @property int $status
+ * @property bool $is_disabled
+ * @property string $disabled_until
+ * @property bool $is_ignored
+ * @property string $ignored_until
+ * @property bool $is_unmanaged
+ * @property string $unmanaged_from
+ * @property string $unmanaged_until
+ * @property string $last_check
+ * @property string $check_duration
+ * @property string $next_check
+ * @property string $last_discovery
+ * @property string $discovery_duration
+ * @property string $next_discovery
+ * @property string $last_poll
+ * @property string $poll_duration
+ * @property string $next_poll
  * @property DeviceInterface $interfaces
  * @property DeviceEntityPhysical $inventory
  * @property Vendor $vendor
