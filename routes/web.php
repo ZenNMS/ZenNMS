@@ -55,7 +55,7 @@ Route::prefix('nms')->group(function () {
     Route::delete('device/{device}', [DeviceController::class, 'destroy'])
         ->name('device.destroy');
 
-    Route::get('device/{device}/edit', [DeviceController::class, 'edit'])
+    Route::get('device/{id}/edit', [DeviceController::class, 'edit'])
         ->name('device.edit');
 
     Route::get('device/{device}/interfaces', DeviceInterfacesController::class)
