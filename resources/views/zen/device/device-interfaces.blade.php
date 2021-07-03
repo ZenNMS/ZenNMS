@@ -75,7 +75,7 @@
               </x-html.table-body-column>
               <x-html.table-body-column>
                 <div class="text-sm text-gray-900" title="Interface Speed">
-                  {{ $interface->speed }} Mbps
+                  {{ $interface->speed }}
                 </div>
                 <div class="text-sm text-gray-500" title="MTU">
                   {{ $interface->mtu }}
