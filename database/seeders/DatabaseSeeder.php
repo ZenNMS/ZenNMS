@@ -8,6 +8,8 @@ use Database\Seeders\sample\DeviceResponseTimeSeeder;
 use Database\Seeders\sample\DeviceNeighboursSeeder;
 use Database\Seeders\sample\DeviceInterfacesSeeder;
 use Database\Seeders\sample\DeviceEntityPhysicalSeeder;
+use Database\Seeders\sample\DeviceSnmpDetailsSeeder;
+use Database\Seeders\sample\DeviceSnmpSettingsSeeder;
 use Database\Seeders\sample\WirelessAccessPointsSeeder;
 use Database\Seeders\sample\WirelessClientsCountSeeder;
 use Illuminate\Database\Seeder;
@@ -24,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $loadSampleData = $this->command->confirm('Load sample data?');
 
         $this->call([
+            ChecksSeeder::class,
             DeviceTypesSeeder::class,
             IanaInterfaceTypeDefinitionsSeeder::class,
             IanaPhysicalClassDefinitionsSeeder::class,
@@ -42,6 +45,8 @@ class DatabaseSeeder extends Seeder
                 DeviceNeighboursSeeder::class,
                 DeviceResponseTimeSeeder::class,
                 DeviceSettingsSeeder::class,
+                DeviceSnmpDetailsSeeder::class,
+                DeviceSnmpSettingsSeeder::class,
                 WirelessAccessPointsSeeder::class,
                 WirelessClientsCountSeeder::class,
             ]);
