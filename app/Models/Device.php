@@ -9,46 +9,40 @@ use Laravel\Scout\Searchable;
 /**
  * Class Device
  *
- * @property string $hostname
- * @property string $display_name
- * @property string $ip_address
- * @property string $ipv6_address
- * @property bool $is_dynamic_ip
- * @property string $dns
- * @property string $group
- * @property int $type_id
- * @property int $vendor_id
- * @property string $asset_tag
- * @property int $is_rackable
- * @property string $polling_method
- * @property string $sysDescr
- * @property string $sysObjectID
- * @property int $sysUpTime
- * @property string $sysContact
- * @property string $sysName
- * @property string $sysLocation
- * @property int $sysServices
- * @property int $status
- * @property bool $is_disabled
- * @property string $disabled_until
- * @property bool $is_ignored
- * @property string $ignored_until
- * @property bool $is_unmanaged
- * @property string $unmanaged_from
- * @property string $unmanaged_until
- * @property string $last_check
- * @property string $check_duration
- * @property string $next_check
- * @property string $last_discovery
- * @property string $discovery_duration
- * @property string $next_discovery
- * @property string $last_poll
- * @property string $poll_duration
- * @property string $next_poll
- * @property DeviceInterface $interfaces
- * @property DeviceEntityPhysical $inventory
- * @property Vendor $vendor
- * @property WirelessAccessPoint $wirelessAccessPoint
+ * @property  int   $id
+ * @property  string  $hostname
+ * @property  string  $display_name
+ * @property  string  $ip_address
+ * @property  string  $ipv6_address
+ * @property  bool  $is_dynamic_ip
+ * @property  string  $dns
+ * @property  string  $group
+ * @property  int  $type_id
+ * @property  int  $vendor_id
+ * @property  string  $asset_tag
+ * @property  int  $is_rackable
+ * @property  string  $polling_method
+ * @property  int  $status
+ * @property  bool  $is_disabled
+ * @property  string  $disabled_until
+ * @property  bool  $is_ignored
+ * @property  string  $ignored_until
+ * @property  bool  $is_unmanaged
+ * @property  string  $unmanaged_from
+ * @property  string  $unmanaged_until
+ * @property  string  $last_check
+ * @property  string  $check_duration
+ * @property  string  $next_check
+ * @property  string  $last_discovery
+ * @property  string  $discovery_duration
+ * @property  string  $next_discovery
+ * @property  string  $last_poll
+ * @property  string  $poll_duration
+ * @property  string  $next_poll
+ * @property  DeviceInterface  $interfaces
+ * @property  DeviceEntityPhysical  $inventory
+ * @property  Vendor  $vendor
+ * @property  WirelessAccessPoint  $wirelessAccessPoint
  */
 class Device extends Model
 {
@@ -72,13 +66,6 @@ class Device extends Model
         'asset_tag',
         'is_rackable',
         'polling_method',
-        'sysDescr',
-        'sysObjectID',
-        'sysUpTime',
-        'sysContact',
-        'sysName',
-        'sysLocation',
-        'sysServices',
         'status',
         'is_disabled',
         'disabled_until',
@@ -96,6 +83,16 @@ class Device extends Model
         'last_poll',
         'poll_duration',
         'next_poll',
+    ];
+
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = [
+        'snmpDetails',
+        'type',
     ];
 
     /**
@@ -211,6 +208,16 @@ class Device extends Model
      */
 
     /**
+     * Get the ICMP settings for this device.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function icmpSettings()
+    {
+        return $this->hasOne(DeviceIcmpSetting::class);
+    }
+
+    /**
      * Get the Interfaces of this node.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -238,6 +245,26 @@ class Device extends Model
     public function neighbours()
     {
         return $this->hasMany(DeviceNeighbours::class);
+    }
+
+    /**
+     * Get the SNMP details for this device.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function snmpDetails()
+    {
+        return $this->hasOne(DeviceSnmpDetail::class);
+    }
+
+    /**
+     * Get the SNMP settings for this device.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function snmpSettings()
+    {
+        return $this->hasOne(DeviceSnmpSetting::class);
     }
 
     /**

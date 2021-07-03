@@ -30,15 +30,6 @@ class CreateDevicesTable extends Migration
 
             $table->string('polling_method')->nullable();
 
-            # SNMP MIB-II System Group
-            $table->string('sysDescr', 255)->nullable();
-            $table->string('sysObjectID', 255)->nullable();
-            $table->unsignedBigInteger('sysUpTime')->nullable();
-            $table->string('sysContact', 255)->nullable();
-            $table->string('sysName', 255)->nullable();
-            $table->string('sysLocation', 255)->nullable();
-            $table->unsignedSmallInteger('sysServices')->nullable();
-
             # Status Info
             $table->unsignedTinyInteger('status')->nullable();
             $table->boolean('is_disabled')->default(false);
