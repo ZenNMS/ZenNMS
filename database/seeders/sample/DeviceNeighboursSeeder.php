@@ -80,6 +80,19 @@ class DeviceNeighboursSeeder extends Seeder
                 "sys_name" => "FortiWiFi-51E",
                 "sys_description" => "FortiWiFi-51E v6.2.3,build1066,191218 (GA)",
             ],
+            [
+                "device_id" => 2,
+                "time_mark" => 0,
+                "local_port_number" => 0,
+                "index" => 0,
+                "chassis_id_subtype" => 4,
+                "chassis_id" => "70:4c:a5:14:3b:cc",
+                "port_id_subtype" => 3,
+                "port_id" => '70:4c:a5:14:3b:cc',
+                "port_description" => "eth0",
+                "sys_name" => "FP221C3X17008795",
+                "sys_description" => "FortiAP-221C v6.0,build0044,191120 (GA)",
+            ],
         ];
 
         DB::table('device_lldp_neighbours')->insert($records);
