@@ -13,6 +13,7 @@
         "ext-snmp": "*",
         "acamposm/ping": "^2.1",
         "acamposm/snmp-poller": "^1.1",
+        "blade-ui-kit/blade-ui-kit": "^0.2.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
