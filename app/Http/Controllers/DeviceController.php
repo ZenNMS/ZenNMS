@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Device;
+use App\Models\DeviceInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DeviceController extends Controller
 {
@@ -52,8 +54,9 @@ class DeviceController extends Controller
     public function show(Device $device)
     {
         $data = [
-            'device'     => $device,
-            'interfaces' => (object) [
+            'device'       => $device,
+            'snmp_details' => $device->snmpDetails()->get(),
+            'interfaces'   => (object) [
                 'up'      => 0,
                 'down'    => 0,
                 'unknown' => 0,
@@ -66,6 +69,13 @@ class DeviceController extends Controller
                 'down'    => $device->interfaces()->interfaceStatusDown()->count(),
                 'unknown' => $device->interfaces()->interfaceStatusUnknown()->count(),
             ];
+
+            $data['types'] = DB::table('device_interfaces')
+                ->join('interface_type_definitions', 'device_interfaces.type_id', '=', 'interface_type_definitions.id')
+                ->select(DB::raw('count(*) as value, interface_type_definitions.type as name'))
+                ->where('device_interfaces.device_id', '=', $device->id)
+                ->groupBy('interface_type_definitions.type')
+                ->get();
         }
 
         return view('zen.device.show', $data);
@@ -79,7 +89,13 @@ class DeviceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $device = Device::with([
+            'icmpSettings',
+            'snmpSettings',
+        ])
+        ->findOrFail($id);
+
+        return view('zen.device.edit', $device);
     }
 
     /**
