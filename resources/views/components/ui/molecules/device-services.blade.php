@@ -3,7 +3,7 @@
 ])
 
 @php
-  $services_bin = str_pad(decbin($services), 7, '0');
+  $services_bin = str_pad(decbin((int) $services), 7, '0');
   $services_rev = strrev($services_bin);
   $services_arr = str_split($services_rev, 1);
 
