@@ -24,7 +24,7 @@ class CreateDevicesTable extends Migration
             $table->string('dns')->nullable();
             $table->string('group', 50)->nullable();
             $table->unsignedInteger('type_id')->nullable();
-            $table->unsignedInteger('vendor_id')->nullable();
+            $table->unsignedBigInteger('vendor_id')->nullable();
             $table->string('asset_tag')->nullable();
             $table->boolean('is_rackable')->default(false);
 

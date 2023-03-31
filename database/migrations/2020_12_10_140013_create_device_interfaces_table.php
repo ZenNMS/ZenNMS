@@ -20,7 +20,7 @@ class CreateDeviceInterfacesTable extends Migration
             $table->string('name', 100);
             $table->string('alias', 100);
             $table->string('description', 255);
-            $table->smallInteger('type_id');
+            $table->unsignedBigInteger('type_id');
             $table->unsignedInteger('speed');
             $table->integer('mtu');
             $table->string('physical_address');
